@@ -1,0 +1,8 @@
+<mvc:View
+   controllerName="pae.logistica.controller.Login"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+    <Input  id="uid" placeholder="User ID"></Input>
+    <Input  id="pasw" placeholder="Password" type="Password"></Input>
+    <Button width="100%" text="Login" type="Emphasized"></Button>
+</mvc:View>

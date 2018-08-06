@@ -1,0 +1,21 @@
+<mvc:View
+   controllerName="pae.logistica.controller.App"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   displayBlock="true" >
+   <App class="myAppDemoWT">
+      <pages>
+         <Page title="{i18n>homePageTitle}">
+            <content>
+                  <VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
+                        <items>
+                              <mvc:XMLView viewName="pae.logistica.view.Login"/>
+                        </items>
+                  </VBox>
+            </content>
+         </Page>
+      </pages>
+   </App>
+</mvc:View>
+
+
