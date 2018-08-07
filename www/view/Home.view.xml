@@ -1,0 +1,13 @@
+<mvc:View
+   controllerName="pae.logistica.controller.Home"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   id="home">
+    <Page title="Subir foto">
+        <Panel>
+            <Input  id="uid" placeholder="User ID"></Input>
+            <Input  id="pasw" placeholder="Password" type="Password"></Input>
+            <Button width="100%" text="Login" type="Emphasized" press="onPress"></Button>
+        </Panel>
+    </Page>
+</mvc:View>
