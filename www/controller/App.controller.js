@@ -1,13 +1,35 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/m/MessageToast"
+], function (Controller, MessageToast) {
 	"use strict";
 
+	var oRouter = 0;
+
 	return Controller.extend("pae.logistica.controller.App", {
-		onPress: function(){
-			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("Home");
-		}
+		onInit: function(){
+			oRouter = this.getOwnerComponent().getRouter();
+		},
+		onLogin: function(){
+			var UserID = this.getView().byId("UserID").getValue();
+			var Password = this.getView().byId("Password").getValue();
+			if(UserID != "Admin" && Password != "1234"){
+				MessageToast.show("Usuario Incorrecto");
+			}else{
+				MessageToast.show("Validando Usuario", {
+					duration: 1500,
+					autoClose: false,
+					onClose: function(){
+						MessageToast.show("Usuario Correcto", {
+							duration: 1500,
+							autoClose: false
+						});
+						oRouter.navTo("Home");
+					}
+				});
+			}
+
+		},
 	});
 
 });

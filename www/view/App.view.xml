@@ -9,11 +9,9 @@
             <content>
                   <VBox renderType="Bare" fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center" direction="Column">
                         <items>
-                              <Input  width="50%" id="uid" placeholder="User ID"></Input>
-                              <Input  width="50%" id="pasw" placeholder="Password" type="Password">
-                              </Input>
-                              <Button width="50%" text="Login" type="Emphasized" press="onPress">
-                              </Button>
+                              <Input  width="50%" id="UserID" placeholder="User ID"></Input>
+                              <Input  width="50%" id="Password" placeholder="Password" type="Password"></Input>
+                              <Button width="50%" text="Login" type="Emphasized" press="onLogin"></Button>
                         </items>
                   </VBox>
             </content>

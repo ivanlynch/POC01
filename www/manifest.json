@@ -48,7 +48,7 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
+        "routerClass": "pae.logistica.controller.CustomRouter",
         "viewType": "XML",
         "viewPath": "pae.logistica.view",
         "controlId": "app",
@@ -57,21 +57,12 @@
       },
       "routes": [
         {
-          "pattern": "login",
-          "name": "login",
-          "target": "Login"
-        },
-        {
           "pattern": "home",
           "name": "Home",
           "target": "Home"
         }
       ],
       "targets": {
-        "Login": {
-          "viewID": "App",
-          "viewName": "App"
-        },
         "Home": {
           "viewId": "Home",
           "viewName": "Home"
