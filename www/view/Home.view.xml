@@ -6,13 +6,14 @@
    xmlns:l="sap.ui.layout"
    xmlns:core="sap.ui.core"
    async="true"
-   id="home">
+   id="home"
+   xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
     <Page>
         <VBox class="sapUiSmallMargin">
 		<f:SimpleForm id="SimpleFormChange480_12120"
 			editable="true"
 			layout="ResponsiveGridLayout"
-			title="Reportar incidente"
+			title="Notificar Evento"
 			labelSpanXL="4"
 			labelSpanL="4"
 			labelSpanM="12"
@@ -27,37 +28,37 @@
 			columnsM="1"
 			singleContainerFullSize="false" >
 			<f:content>
-				<core:Title text="Office" />
-				<Label text="Name" />
-				<Input value="{SupplierName}" />
-				<Label text="Street/No." />
-				<Input value="{Street}">
-				</Input>
-				<Input value="{HouseNumber}">
-					<layoutData>
-						<l:GridData span="XL2 L3 M4 S4" />
-					</layoutData>
-				</Input>
-				<Label text="ZIP Code/City" />
-				<Input value="{ZIPCode}">
-					<layoutData>
-						<l:GridData span="XL2 L3 M4 S4" />
-					</layoutData>
-				</Input>
-				<Input value="{City}" />
-				<Label text="Country" />
-				<Select id="country" selectedKey="{Country}">
+				<core:Title text="¿Qué ha sucedido?" />
+				<Input placeholder="Descripción del evento" />
+				<core:Title text="¿Cuándo ha pasado?" />
+				<DatePicker	id="dPicker"
+							value="{path: '/fechaActual', type:'sap.ui.model.type.Date' }"
+							valueFormat="dd-MM-yyyy"
+							displayFormat="long"
+							placeholder="Dia - Mes - Año"
+							class="sapUiSmallMarginBottom"/>
+				<core:Title text="¿Donde ha pasado?" />
+				<Select>
 					<items>
-						<core:Item text="England" key="England"/>
-						<core:Item text="Germany" key="Germany"/>
-						<core:Item text="USA" key="USA"/>
+						<core:Item text="Alem 1110" key="1"/>
+						<core:Item text="Alem 1134" key="2"/>
 					</items>
 				</Select>
-				<core:Title text="Online" />
-				<Label text="Web" />
-				<Input value="{Url}" type="Url" />
-				<Label text="Twitter" />
-				<Input value="{Twitter}" />
+				<core:Title text="¿Quíen notifica?" />
+				<RadioButtonGroup columns="2" class="sapUiMediumMarginBottom" var="oButtonValue">
+					<buttons>
+						<RadioButton id="RB1-1" text="Confidencial" value="1"/>
+						<RadioButton id="RB1-2" text="Anónima" value="2"/>
+					</buttons>
+				</RadioButtonGroup>
+				<template:if test="{= {target} === 'Confidencial'}" >
+					<core:Icon src="sap-icon://email" />
+				</template:if>
+				<template:if test="{= {target} === 'Anónima'}" >
+					<core:Icon src="sap-icon://phone" />
+				</template:if>
+				
+				<Text id="textArea"/>
 			</f:content>
 		</f:SimpleForm>
 		<f:SimpleForm id="SimpleFormChange480_12120-2"
