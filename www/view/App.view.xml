@@ -7,9 +7,13 @@
       <pages>
          <Page title="{i18n>homePageTitle}">
             <content>
-                  <VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
+                  <VBox renderType="Bare" fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center" direction="Column">
                         <items>
-                              <mvc:XMLView viewName="pae.logistica.view.Login"/>
+                              <Input  width="50%" id="uid" placeholder="User ID"></Input>
+                              <Input  width="50%" id="pasw" placeholder="Password" type="Password">
+                              </Input>
+                              <Button width="50%" text="Login" type="Emphasized" press="onPress">
+                              </Button>
                         </items>
                   </VBox>
             </content>

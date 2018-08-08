@@ -57,7 +57,7 @@
       },
       "routes": [
         {
-          "pattern": "",
+          "pattern": "login",
           "name": "login",
           "target": "Login"
         },
