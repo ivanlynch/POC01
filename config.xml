@@ -8,7 +8,7 @@
         Iván Lynch
     </author>
     <content src="index.html" />
-    <preference name="SplashScreenDelay" value="4000" />
+    <preference name="SplashScreenDelay" value="6000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

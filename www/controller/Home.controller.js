@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel"
-], function (Controller, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/m/MessageToast"
+], function (Controller, JSONModel, MessageToast) {
 	"use strict";
 	var imageRoute;
 
@@ -45,6 +46,20 @@ sap.ui.define([
 			}
 
 			return TomarFoto();
+		},
+		onSelectRadioButtonGroup: function(oEvent){
+			if(oEvent.getSource().getSelectedButton().getText() != "Confidencial"){
+				sap.ui.getCore().byId("__component0---Home--formConfidencial").setVisible(false);
+			}else{
+				sap.ui.getCore().byId("__component0---Home--formConfidencial").setVisible(true);
+			}
+		},
+		onGuardar: function(){
+			MessageToast.show("Guardando", {
+				duration: 1500,
+				autoClose: false
+			});
+			this.getOwnerComponent().getRouter().navTo("");	
 		}
 	});
 });

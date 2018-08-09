@@ -7,7 +7,7 @@
    xmlns:core="sap.ui.core"
    async="true"
    id="home"
-   xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
+   >
     <Page>
         <VBox class="sapUiSmallMargin">
 		<f:SimpleForm id="SimpleFormChange480_12120"
@@ -45,26 +45,19 @@
 					</items>
 				</Select>
 				<core:Title text="¿Quíen notifica?" />
-				<RadioButtonGroup columns="2" class="sapUiMediumMarginBottom" var="oButtonValue">
+				<RadioButtonGroup id="RBG" columns="2" class="sapUiMediumMarginBottom" select="onSelectRadioButtonGroup">
 					<buttons>
 						<RadioButton id="RB1-1" text="Confidencial" value="1"/>
 						<RadioButton id="RB1-2" text="Anónima" value="2"/>
 					</buttons>
 				</RadioButtonGroup>
-				<template:if test="{= {target} === 'Confidencial'}" >
-					<core:Icon src="sap-icon://email" />
-				</template:if>
-				<template:if test="{= {target} === 'Anónima'}" >
-					<core:Icon src="sap-icon://phone" />
-				</template:if>
-				
-				<Text id="textArea"/>
 			</f:content>
 		</f:SimpleForm>
-		<f:SimpleForm id="SimpleFormChange480_12120-2"
+		<f:SimpleForm id="formConfidencial"
 			editable="true"
+			visible="true"
 			layout="ResponsiveGridLayout"
-			title="More"
+			title="Formulario de confidencialidad"
 			labelSpanXL="4"
 			labelSpanL="4"
 			labelSpanM="12"
@@ -79,15 +72,21 @@
 			columnsM="1"
 			singleContainerFullSize="false">
 			<f:content>
-				<core:Title text="Contact data" />
+				<core:Title text="Informacion de contacto" />
+				<Label text="Nombre y Apellido" />
+				<Input text="Nombre y Apellido" />
 				<Label text="Email" />
-				<Input value="{EMail}" type="Email" />
-				<Label text="Tel." />
-				<Input value="{Tel}" type="Tel" />
-				<Label text="SMS" />
-				<Input value="{Sms}" type="Tel" />
+				<Input text="Email" />
 			</f:content>
 		</f:SimpleForm>
 	</VBox>
+	<footer>
+		<OverflowToolbar>
+			<Button icon="sap-icon://add-photo" press="onCamera"/>
+			<ToolbarSpacer />
+			<Button type="Accept" text="Guardar" press="onGuardar"/>
+			<Button type="Reject" text="Cancelar" press="onCancelar"/>
+		</OverflowToolbar>
+	</footer>
     </Page>
 </mvc:View>
