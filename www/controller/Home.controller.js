@@ -29,14 +29,13 @@ sap.ui.define([
 			function TomarFoto() {
 				navigator.camera.getPicture(onSuccess, onFail, {
 					quality: 50,
-					destinationType: destinationType.DATA_URL,
+					destinationType: destinationType.FILE_URI,
 					saveToPhotoAlbum: true
 				});
 			}
 
 			function onSuccess(imageData) {
 				var smallImage = document.getElementById('smallImage');
-				smallImage.style.display = 'block';
 				smallImage.src = "data:image/jpeg;base64," + imageData;
 			}
 
@@ -55,11 +54,12 @@ sap.ui.define([
 			}
 		},
 		onGuardar: function(){
-			MessageToast.show("Guardando", {
+			MessageToast.show("Su imágen ha sido almacenada en la memoria del teléfono", {
 				duration: 1500,
 				autoClose: false
 			});
-			this.getOwnerComponent().getRouter().navTo("");	
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				oRouter.navTo("App", true);
 		}
 	});
 });

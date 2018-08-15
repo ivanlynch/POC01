@@ -60,12 +60,21 @@
           "pattern": "home",
           "name": "Home",
           "target": "Home"
+        },
+        {
+          "pattern": "app",
+          "name": "App",
+          "target": "App"
         }
       ],
       "targets": {
         "Home": {
           "viewId": "Home",
           "viewName": "Home"
+        },
+        "App": {
+          "viewId": "App",
+          "viewName": "App"
         }
       }
     }

@@ -47,8 +47,8 @@
 				<core:Title text="¿Quíen notifica?" />
 				<RadioButtonGroup id="RBG" columns="2" class="sapUiMediumMarginBottom" select="onSelectRadioButtonGroup">
 					<buttons>
-						<RadioButton id="RB1-1" text="Confidencial" value="1"/>
-						<RadioButton id="RB1-2" text="Anónima" value="2"/>
+						<RadioButton id="RB1-1" text="Confidencial"/>
+						<RadioButton id="RB1-2" text="Anónima"/>
 					</buttons>
 				</RadioButtonGroup>
 			</f:content>
@@ -74,9 +74,9 @@
 			<f:content>
 				<core:Title text="Informacion de contacto" />
 				<Label text="Nombre y Apellido" />
-				<Input text="Nombre y Apellido" />
+				<Input placeholder="Ingrese Nombre y Apellido" />
 				<Label text="Email" />
-				<Input text="Email" />
+				<Input placeholder="Ingrese email" />
 			</f:content>
 		</f:SimpleForm>
 	</VBox>
