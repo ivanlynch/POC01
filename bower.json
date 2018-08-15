@@ -1,23 +1,28 @@
 {
-    "name": "monoculus-openui5",
-    "main": "",
-    "authors": [
-      "Iván Lynch <ivan.lynch@outlook.com.ar>"
-    ],
-    "description": "A little template to work with openui5",
-    "license": "MIT",
-    "ignore": [
-      "**/.*",
-      "node_modules",
-      "bower_components",
-      "test",
-      "tests"
-    ],
-    "dependencies" : {
-      "openui5-sap.m": "openui5/packaged-sap.m#latest",
-      "openui5-sap.ui.core": "openui5/packaged-sap.ui.core#latest",
-      "openui5-sap.ui.layout": "openui5/packaged-sap.ui.layout#latest",
-      "openui5-sap.ui.unified": "openui5/packaged-sap.ui.unified#latest",
-      "openui5-themelib_sap_belize": "openui5/packaged-themelib_sap_belize#latest"
-    }
+  "name": "monoculus-openui5",
+  "main": "",
+  "authors": [
+    "Iván Lynch <ivan.lynch@outlook.com.ar>"
+  ],
+  "description": "A little template to work with openui5",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "openui5-sap.m": "openui5/packaged-sap.m#latest",
+    "openui5-sap.ui.core": "openui5/packaged-sap.ui.core#latest",
+    "openui5-sap.ui.layout": "openui5/packaged-sap.ui.layout#latest",
+    "openui5-sap.ui.unified": "openui5/packaged-sap.ui.unified#latest",
+    "openui5-themelib_sap_belize": "openui5/packaged-themelib_sap_belize#latest",
+    "openui5-sap.uxap": "openui5/packaged-sap.uxap#^1.58.0"
+  },
+  "resolutions": {
+    "openui5-sap.uxap": "openui5/packaged-sap.uxap#1.58.0",
+    "openui5-sap.ui.core": "~1.58.0"
   }
+}

@@ -1,92 +1,154 @@
-<mvc:View
-   controllerName="pae.logistica.controller.Home"
-   xmlns="sap.m"
-   xmlns:mvc="sap.ui.core.mvc"
-   xmlns:f="sap.ui.layout.form"
-   xmlns:l="sap.ui.layout"
-   xmlns:core="sap.ui.core"
-   async="true"
-   id="home"
-   >
-    <Page>
-        <VBox class="sapUiSmallMargin">
-		<f:SimpleForm id="SimpleFormChange480_12120"
-			editable="true"
-			layout="ResponsiveGridLayout"
-			title="Notificar Evento"
-			labelSpanXL="4"
-			labelSpanL="4"
-			labelSpanM="12"
-			labelSpanS="12"
-			adjustLabelSpan="false"
-			emptySpanXL="0"
-			emptySpanL="0"
-			emptySpanM="0"
-			emptySpanS="0"
-			columnsXL="2"
-			columnsL="2"
-			columnsM="1"
-			singleContainerFullSize="false" >
-			<f:content>
-				<core:Title text="¿Qué ha sucedido?" />
-				<Input placeholder="Descripción del evento" />
-				<core:Title text="¿Cuándo ha pasado?" />
-				<DatePicker	id="dPicker"
-							value="{path: '/fechaActual', type:'sap.ui.model.type.Date' }"
-							valueFormat="dd-MM-yyyy"
-							displayFormat="long"
-							placeholder="Dia - Mes - Año"
-							class="sapUiSmallMarginBottom"/>
-				<core:Title text="¿Donde ha pasado?" />
-				<Select>
-					<items>
-						<core:Item text="Alem 1110" key="1"/>
-						<core:Item text="Alem 1134" key="2"/>
-					</items>
-				</Select>
-				<core:Title text="¿Quíen notifica?" />
-				<RadioButtonGroup id="RBG" columns="2" class="sapUiMediumMarginBottom" select="onSelectRadioButtonGroup">
-					<buttons>
-						<RadioButton id="RB1-1" text="Confidencial"/>
-						<RadioButton id="RB1-2" text="Anónima"/>
-					</buttons>
-				</RadioButtonGroup>
-			</f:content>
-		</f:SimpleForm>
-		<f:SimpleForm id="formConfidencial"
-			editable="true"
-			visible="true"
-			layout="ResponsiveGridLayout"
-			title="Formulario de confidencialidad"
-			labelSpanXL="4"
-			labelSpanL="4"
-			labelSpanM="12"
-			labelSpanS="12"
-			adjustLabelSpan="false"
-			emptySpanXL="0"
-			emptySpanL="0"
-			emptySpanM="0"
-			emptySpanS="0"
-			columnsXL="2"
-			columnsL="2"
-			columnsM="1"
-			singleContainerFullSize="false">
-			<f:content>
-				<core:Title text="Informacion de contacto" />
-				<Label text="Nombre y Apellido" />
-				<Input placeholder="Ingrese Nombre y Apellido" />
-				<Label text="Email" />
-				<Input placeholder="Ingrese email" />
-			</f:content>
-		</f:SimpleForm>
-	</VBox>
-	<footer>
-		<OverflowToolbar>
-			<Button icon="sap-icon://add-photo" press="onCamera"/>
-			<ToolbarSpacer />
-			<Button type="Accept" text="Guardar" press="onGuardar"/>
-			<Button type="Reject" text="Cancelar" press="onCancelar"/>
-		</OverflowToolbar>
-	</footer>
-    </Page>
-</mvc:View>
+<core:View xmlns:core="sap.ui.core"
+		   xmlns="sap.uxap"
+		   xmlns:layout="sap.ui.layout"
+		   xmlns:m="sap.m"
+		   xmlns:sample="sap.uxap.sample.SharedBlocks"
+		   xmlns:goals="sap.uxap.sample.SharedBlocks.goals"
+		   xmlns:personal="sap.uxap.sample.SharedBlocks.personal"
+		   xmlns:employment="sap.uxap.sample.SharedBlocks.employment"
+		   xmlns:connections="sap.uxap.sample.SharedBlocks.connections"
+		   controllerName="pae.logistica.controller.Home"
+		   height="100%">
+	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" useIconTabBar="true" showTitleInHeaderContent="true">
+		<headerTitle>
+			<ObjectPageHeader objectImageURI="./test-resources/sap/uxap/images/imageID_275314.png"
+							  objectTitle="Denise Smith"
+							  objectImageShape="Circle"
+							  objectSubtitle="Senior UI Developer">
+				<actions>
+					<ObjectPageHeaderActionButton icon="sap-icon://pull-down" text="show section" type="Emphasized" tooltip="pull-down"/>
+					<ObjectPageHeaderActionButton icon="sap-icon://show" text="show state" type="Emphasized" tooltip="show"/>
+				</actions>
+			</ObjectPageHeader>
+		</headerTitle>
+
+		<headerContent>
+			<layout:VerticalLayout>
+				<m:Link text="+33 6 4512 5158"/>
+				<m:Link text="DeniseSmith@sap.com"/>
+			</layout:VerticalLayout>
+
+			<layout:HorizontalLayout>
+				<m:Image src="./test-resources/sap/uxap/images/linkedin.png"></m:Image>
+				<m:Image src="./test-resources/sap/uxap/images/Twitter.png"></m:Image>
+			</layout:HorizontalLayout>
+
+			<layout:VerticalLayout>
+				<m:Label text="Hello! I am Tim and I use UxAP"/>
+				<m:VBox height="63px">
+					<m:Label text="Achieved goals"/>
+					<m:ProgressIndicator
+							percentValue="30"
+							displayValue="30%"
+							showValue="true"
+							state="None"/>
+				</m:VBox>
+			</layout:VerticalLayout>
+
+			<layout:VerticalLayout>
+				<m:Label text="San Jose, USA"/>
+			</layout:VerticalLayout>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection id="goals" title="2014 Goals Plan">
+			<subSections>
+				<ObjectPageSubSection id="goalsSS1" title="">
+					<blocks>
+						<goals:GoalsBlock id="goalsblock"/>
+					</blocks>
+				</ObjectPageSubSection>
+			</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection id="personal" title="Personal">
+				<subSections>
+					<ObjectPageSubSection id="personalSS1" title="Connect">
+						<blocks>
+							<personal:BlockPhoneNumber id="phone"/>
+							<personal:BlockSocial id="social"/>
+							<personal:BlockAdresses id="adresses"/>
+							<personal:BlockMailing id="mailing" columnLayout="1"/>
+						</blocks>
+					</ObjectPageSubSection>
+
+					<ObjectPageSubSection id="personalSS2" title="Payment information">
+						<blocks>
+							<personal:PersonalBlockPart1 id="part1" columnLayout="1"/>
+						</blocks>
+						<moreBlocks>
+							<personal:PersonalBlockPart2 id="part2" columnLayout="1"/>
+						</moreBlocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection id="employment" title="Employment">
+				<subSections>
+					<ObjectPageSubSection id="employmentSS1" title="Job information">
+						<blocks>
+							<employment:BlockJobInfoPart1 id="jobinfopart1"/>
+							<employment:BlockJobInfoPart2 id="jobinfopart2"/>
+							<employment:BlockJobInfoPart3 id="jobinfopart3"/>
+						</blocks>
+					</ObjectPageSubSection>
+
+					<ObjectPageSubSection id="employmentSS2" title="Employee Details" mode="Collapsed">
+						<blocks>
+							<employment:BlockEmpDetailPart1 id="empdetailpart1" columnLayout="1"/>
+						</blocks>
+						<moreBlocks>
+							<employment:BlockEmpDetailPart2 id="empdetailpart2" columnLayout="1"/>
+							<employment:BlockEmpDetailPart3 id="empdetailpart3" columnLayout="1"/>
+						</moreBlocks>
+					</ObjectPageSubSection>
+
+					<ObjectPageSubSection id="employmentSS3" title="Job Relationship" mode="Collapsed">
+						<blocks>
+							<employment:EmploymentBlockJob id="employmentblockjob" showSubSectionMore="true">
+								<employment:mappings>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp1"
+												  externalPath="/Employee/0"/>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp2"
+												  externalPath="/Employee/1"/>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp3"
+												  externalPath="/Employee/2"/>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp4"
+												  externalPath="/Employee/3"/>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp5"
+												  externalPath="/Employee/4"/>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp6"
+												  externalPath="/Employee/5"/>
+								</employment:mappings>
+							</employment:EmploymentBlockJob>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection id="connections" title="Connections">
+				<subSections>
+					<ObjectPageSubSection id="connectionsSS1" title="">
+						<blocks>
+							<connections:ConnectionsBlock id="connectionsblock">
+								<connections:mappings>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp1"
+												  externalPath="/Employee/0"/>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp2"
+												  externalPath="/Employee/1"/>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp3"
+												  externalPath="/Employee/2"/>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp4"
+												  externalPath="/Employee/3"/>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp5"
+												  externalPath="/Employee/4"/>
+									<ModelMapping externalModelName="ObjectPageModel" internalModelName="emp6"
+												  externalPath="/Employee/5"/>
+								</connections:mappings>
+							</connections:ConnectionsBlock>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</core:View>
